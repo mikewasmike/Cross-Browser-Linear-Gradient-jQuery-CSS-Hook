@@ -141,7 +141,7 @@
 
                 set: function (elem, value) {
                     if (rLinear.test(value)) {
-                        if ($.support.linearGradient === "svg") {
+                        /*if ($.support.linearGradient === "svg") {
                             elem.style[prop] = linearSvgSettings(value);
                             $(elem).addClass("svg-gradient");
                         }
@@ -150,7 +150,8 @@
                             if (elem.style.zoom === "") { elem.style.zoom = 1; }
                             $(elem).addClass("filter-gradient");
                         }
-                        else if ($.support.linearGradient === "-webkit-gradient") {
+                        else */
+                        if ($.support.linearGradient === "-webkit-gradient") {
                             elem.style[prop] = legacyWebkitLinearSettings(value);
                         }
                         else if ($.support.linearGradient !== false) {
