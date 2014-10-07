@@ -129,9 +129,9 @@
         if (rSupportLinearWebkitLegacy.test(divStyle.backgroundImage)) {
             $.support.linearGradient = "-webkit-gradient";
         } else if (document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Shape", "1.0")) { //ie9 & Opera < 11.10
-            $.support.linearGradient = "svg";
+            $.support.linearGradient = false; //svg -- --remove support
         } else if ((typeof divStyle.filter === 'string')) { //ie < 9s
-            $.support.linearGradient = "filter";
+            $.support.linearGradient = false; //filter --remove support
         }
     }
 
@@ -141,17 +141,14 @@
 
                 set: function (elem, value) {
                     if (rLinear.test(value)) {
-                        /*if ($.support.linearGradient === "svg") {
+                        if ($.support.linearGradient === "svg") {
                             elem.style[prop] = linearSvgSettings(value);
                             $(elem).addClass("svg-gradient");
-                        }
-                        else if ($.support.linearGradient === "filter") {
+                        } else if ($.support.linearGradient === "filter") {
                             elem.style.filter = linearFilterSettings(value);
                             if (elem.style.zoom === "") { elem.style.zoom = 1; }
                             $(elem).addClass("filter-gradient");
-                        }
-                        else */
-                        if ($.support.linearGradient === "-webkit-gradient") {
+                        } else if ($.support.linearGradient === "-webkit-gradient") {
                             elem.style[prop] = legacyWebkitLinearSettings(value);
                         }
                         else if ($.support.linearGradient !== false) {
