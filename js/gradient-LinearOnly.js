@@ -7,6 +7,7 @@
 - Only works for background and background image CSS properties
 
 - IE below 9 is using the filter tag which only supports 
+- removed support for IE < 10
 * Licensed under the MIT License (LICENSE.txt).
 */
 (function ($) {
